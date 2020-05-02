@@ -5,6 +5,8 @@ import 'package:mobile_school/ui/widgets/appScafold.dart';
 import 'package:mobile_school/utils/AppStyles.dart';
 import 'package:mobile_school/utils/constants.dart';
 
+import 'assessmentFinishedPage.dart';
+
 class CurrentAssessMentPage extends StatefulWidget {
   final Topic topic;
   final List<Question> questions;
@@ -54,6 +56,24 @@ class _CurrentAssessMentPageState extends State<CurrentAssessMentPage> {
         });
   }
 
+  void _nextSubmit() {
+    if (_answers[_currentIndex] == null) {
+      _key.currentState.showSnackBar(SnackBar(
+        content: Text("You must select an answer to continue."),
+      ));
+      return;
+    }
+    if (_currentIndex < (widget.questions.length - 1)) {
+      setState(() {
+        _currentIndex++;
+      });
+    } else {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (_) => AssessmentFinishedPage(
+              questions: widget.questions, answers: _answers)));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final sz = MediaQuery.of(context).size;
@@ -64,31 +84,36 @@ class _CurrentAssessMentPageState extends State<CurrentAssessMentPage> {
       options.shuffle();
     }
     return AppScaffold(
-      key: _key,
       title: "${widget.topic.topicName} Assessment",
       childWidget: WillPopScope(
         onWillPop: _onWillPop,
-        child: Container(
-          height: sz.height,
-          width: sz.width,
-          child: Column(
-            children: <Widget>[
-              Row(
+        child: Scaffold(
+          key: _key,
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: sz.height,
+              width: sz.width,
+              child: Column(
                 children: <Widget>[
-                  CircleAvatar(
-                    backgroundColor: Constants.primaryColorDark,
-                    child: Text(
-                      "${_currentIndex + 1}",
-                      style: AppStyle.headerTextStyle,
-                    ),
-                  ),
-                  SizedBox(width: 16.0),
-                  Expanded(
-                    child: Text(
-                      widget.questions[_currentIndex].question,
-                      softWrap: true,
-                      style: _questionStyle,
-                    ),
+                  Row(
+                    children: <Widget>[
+                      CircleAvatar(
+                        backgroundColor: Constants.primaryColorDark,
+                        child: Text(
+                          "${_currentIndex + 1}",
+                          style: AppStyle.headerTextStyle,
+                        ),
+                      ),
+                      SizedBox(width: 16.0),
+                      Expanded(
+                        child: Text(
+                          widget.questions[_currentIndex].question,
+                          softWrap: true,
+                          style: _questionStyle,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 20.0),
                   Card(
@@ -108,9 +133,25 @@ class _CurrentAssessMentPageState extends State<CurrentAssessMentPage> {
                       ],
                     ),
                   ),
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        color: Colors.green,
+                        textColor: Colors.white,
+                        child: Text(
+                            _currentIndex == (widget.questions.length - 1)
+                                ? "Submit"
+                                : "Next"),
+                        onPressed: _nextSubmit,
+                      ),
+                    ),
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),

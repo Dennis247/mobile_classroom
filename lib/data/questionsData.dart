@@ -15,7 +15,8 @@ const Map<int, dynamic> demoAnswers = {
 
 final List<Question> demoQuestions = Question.fromData([
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question": "What does the \"MP\" stand for in MP3?",
@@ -23,7 +24,8 @@ final List<Question> demoQuestions = Question.fromData([
     "incorrect_answers": ["Music Player", "Multi Pass", "Micro Point"]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question": "What amount of bits commonly equals one byte?",
@@ -31,7 +33,8 @@ final List<Question> demoQuestions = Question.fromData([
     "incorrect_answers": ["1", "2", "64"]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question":
@@ -44,7 +47,8 @@ final List<Question> demoQuestions = Question.fromData([
     ]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question": "In web design, what does CSS stand for?",
@@ -56,7 +60,8 @@ final List<Question> demoQuestions = Question.fromData([
     ]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question":
@@ -65,7 +70,8 @@ final List<Question> demoQuestions = Question.fromData([
     "incorrect_answers": ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question": "On Twitter, what is the character limit for a Tweet?",
@@ -73,7 +79,8 @@ final List<Question> demoQuestions = Question.fromData([
     "incorrect_answers": ["120", "160", "100"]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question":
@@ -82,7 +89,8 @@ final List<Question> demoQuestions = Question.fromData([
     "incorrect_answers": ["C#", "C++", "Java"]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "boolean",
     "difficulty": "easy",
     "question": "The Windows 7 operating system has six main editions.",
@@ -90,7 +98,8 @@ final List<Question> demoQuestions = Question.fromData([
     "incorrect_answers": ["False"]
   },
   {
-    "topic": Constants.basicScience,
+    "topic": Constants.livingthings,
+    "subject": Constants.basicScience,
     "type": "multiple",
     "difficulty": "easy",
     "question":

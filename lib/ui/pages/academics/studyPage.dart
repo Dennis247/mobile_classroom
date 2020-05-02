@@ -69,9 +69,8 @@ class StudyPage extends StatelessWidget {
               crossAxisSpacing: 10.0,
               childAspectRatio: 1,
               children: <Widget>[
-                _buildStudyRow(
-                    context, sz, FontAwesomeIcons.book, Colors.red, "Study",
-                    () {
+                _buildStudyRow(context, sz, FontAwesomeIcons.desktop,
+                    Colors.red, "Text Books", () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
                     return TopicPage(
@@ -88,7 +87,9 @@ class StudyPage extends StatelessWidget {
                       questions: demoQuestions,
                     );
                   }));
-                }))
+                })),
+                _buildStudyRow(context, sz, FontAwesomeIcons.book, Colors.blue,
+                    "Teacher Note", (() {}))
               ],
             ),
           ),
